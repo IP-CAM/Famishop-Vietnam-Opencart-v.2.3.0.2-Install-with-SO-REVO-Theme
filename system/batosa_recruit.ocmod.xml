@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+	<name><![CDATA[Recruit]]></name>
+    <version><![CDATA[1.0.0]]></version>
+    <author><![CDATA[Webico - www.webico.vn]]></author>
+	<!--Dev: Custom-->
+
+	<file path="admin/controller/common/column_left.php">
+		<operation error="log">
+			<search position="before"><![CDATA[$data['text_complete_status'] = $this->language->get('text_complete_status');]]></search>
+			<add position="before"><![CDATA[
+			$this->load->language('recruit/recruit');
+			$recruit = array();
+			if ($this->user->hasPermission('access', 'recruit/recruit_setting')) {
+				$recruit[] = array(
+					'name'	   => $this->language->get('text_recruit_setting'),
+					'href'     => $this->url->link('recruit/recruit_setting', 'token=' . $this->session->data['token'], true),
+					'children' => array()
+			);}
+			if ($this->user->hasPermission('access', 'recruit/recruit_category')) {
+				$recruit[] = array(
+					'name'	   => $this->language->get('text_recruit_category'),
+					'href'     => $this->url->link('recruit/recruit_category', 'token=' . $this->session->data['token'], true),
+					'children' => array()
+			);}
+			if ($this->user->hasPermission('access', 'recruit/recruit')) {
+				$recruit[] = array(
+					'name'	   => $this->language->get('text_recruit_post'),
+					'href'     => $this->url->link('recruit/recruit', 'token=' . $this->session->data['token'], true),
+					'children' => array()
+			);}
+			if ($this->user->hasPermission('access', 'recruit/recruit_comment')) {
+				$recruit[] = array(
+					'name'	   => $this->language->get('text_recruit_comment'),
+					'href'     => $this->url->link('recruit/recruit_comment', 'token=' . $this->session->data['token'], true),
+					'children' => array()
+			);}
+			if ($recruit) {
+				$data['menus'][] = array(
+					'id'       => 'menu-recruit',
+					'icon'	   => 'fa-newspaper-o',
+					'name'	   => $this->language->get('text_recruit'),
+					'href'     => '',
+					'children' => $recruit
+			);}
+			]]></add>
+		</operation>
+	</file>
+	<file path="catalog/controller/startup/seo_url.php">
+		<operation error="log">
+			<search position="before"><![CDATA[
+			if ($query->row['query'] && $url[0]
+			]]></search>
+			<add position="before"><![CDATA[
+			if ($url[0] == 'recruit_id') {$this->request->get['recruit_id'] = $url[1]; }
+			if ($url[0] == 'recruit_category_id') {
+			if (!isset($this->request->get['recruitpath'])) {
+			$this->request->get['recruitpath'] = $url[1];
+				} else {
+				$this->request->get['recruitpath'] = '_' . $url[1];
+			}}
+			]]></add>
+		</operation>
+
+		<operation error="log">
+			<search position="replace"><![CDATA[
+			!= 'category_id' && $url[0]
+			]]></search>
+			<add position="replace"><![CDATA[
+			!= 'category_id' && $url[0] != 'recruit_category_id' && $url[0] != 'recruit_id' && $url[0]
+			]]></add>
+		</operation>
+
+		<operation error="log">
+			<search position="after"><![CDATA[
+			$this->request->get['route'] = 'product/product';
+			]]></search>
+			<add position="after"><![CDATA[
+			} elseif (isset($this->request->get['recruit_id'])) {
+			$this->request->get['route'] = 'recruit/recruit';
+			} elseif ($this->request->get['_route_'] ==  'recruit_home') {
+			$this->request->get['route'] = 'recruit/home';
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search position="after"><![CDATA[
+			$this->request->get['route'] = 'product/category';
+			]]></search>
+			<add position="after"><![CDATA[
+			} elseif (isset($this->request->get['recruitpath'])) {
+			$this->request->get['route'] = 'recruit/category';
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search position="replace"><![CDATA[
+			($data['route'] == 'information/information' && $key == 'information_id'))
+			]]></search>
+			<add position="replace"><![CDATA[
+			($data['route'] == 'information/information' && $key == 'information_id') || ($data['route'] == 'recruit/recruit' && $key == 'recruit_id'))
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search position="before"><![CDATA[
+			} elseif ($key == 'path') {
+			]]></search>
+			<add position="before"><![CDATA[
+			} elseif ($key == 'recruitpath') {
+			$recruit_categories = explode('_', $value);
+			foreach ($recruit_categories as $category) {
+			$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "url_alias WHERE `query` = 'recruit_category_id=" . (int)$category . "'");
+			if ($query->num_rows) {
+			$url = '/' . $query->row['keyword'];
+			} else {
+			$url = '';
+			break;
+			}}
+			unset($data[$key]);
+			} elseif (isset($data['route']) && $data['route'] ==   'recruit/home') {
+			$recruit_home = $this->db->query("SELECT * FROM " . DB_PREFIX . "url_alias WHERE `query` = 'recruit/home'");
+			if ($recruit_home->num_rows) {
+			$url = '/' . $recruit_home->row['keyword'];
+			} else {
+			$url = '';
+			}
+			]]></add>
+		</operation>
+	</file>
+</modification>

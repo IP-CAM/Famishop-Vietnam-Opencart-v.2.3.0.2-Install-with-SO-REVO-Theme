@@ -1,0 +1,512 @@
+
+/*========BEGIN: MAP========*/
+
+#map {
+  padding: 0;
+  margin: 0;
+  height: 600px;
+  width: 100%;
+}
+
+#findMe{
+  position:absolute;
+  right:10px !important;
+  bottom:10px !important;
+  z-index:1;
+  display:none;
+  width:53px;height:44px;padding:0;border:0;text-indent:-9999px;cursor:pointer;background:url('../images/mobile-geo-bg.png') no-repeat right top;
+  -webkit-appearance:none;
+}
+
+.item-view .notify-info {
+  padding: 20px 10px;
+  font-weight: bold;
+  color: #ff0000;
+  text-align: center;
+}
+
+.page-view {}
+.page-view.pagination { margin: 20px 0px 0px;}
+
+
+.myInfoWindow {
+  background-color:#fff;
+  border:5px solid #a8a8a8;
+  padding:15px;
+  position:relative ;
+  margin-bottom: 40px;
+}
+
+.myInfoWindow:after
+{
+  content:'';
+  display:block;
+  position:absolute;
+  bottom:-40px;
+  left:163px;
+  width:0;
+  height:0;
+  border-color:#fff transparent transparent transparent;
+  border-style:solid;
+  border-width:20px
+}
+.myInfoWindow:before
+{
+  content:'';
+  display:block;
+  position:absolute;
+  bottom:-60px;
+  left:153px;
+  width:0;
+  height:0;
+  border-color:#a8a8a8 transparent transparent transparent;
+  border-style:solid;
+  border-width:30px;
+  z-index:-1
+}
+
+.myInfoWindow-head {
+
+}
+
+.myInfoWindow-body {
+  background-color: #fff;
+  text-align: left;
+  color: #333333;
+}
+
+
+.infowindow {
+  height: auto;
+  width: 350px;
+  position: relative;
+}
+
+.infowindow .infowindow-detail {
+  height: auto;
+  overflow: auto;
+  font-size: 14px;
+}
+
+.infowindow a {
+  color: #0026ff;
+}
+
+.infowindow .infowindow-title {
+  font-size: 18px;
+  color: #555555;
+  font-weight: bold !important;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+.infowindow .infowindow-title a {
+  color: #555555;
+}
+
+.infowindow .infowindow-picture {
+  width: 100px;
+  height: 80px;
+  float: left;
+  margin-right:10px ;
+  position: relative;
+
+}
+
+.infowindow .infowindow-picture img {
+  max-width: 100%;
+  max-height: 100%;
+  border: 1px solid #cccccc;
+}
+
+.infowindow .infowindow-picture img.hasimage {
+  /*cursor: pointer;*/
+}
+
+.infowindow .infowindow-picture:hover img.hasimage {
+  opacity: 0.5;
+}
+
+.infowindow .info {
+  line-height: 20px;
+  min-height:  80px;
+  color: #555555;
+  font-size: 13px;
+}
+
+.infowindow .info .time_open {
+  color: #666666;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.infowindow .info .time_open .open{
+  display: inline-block;
+  color: #605714;
+  width: 49px;
+  height: 19px;
+  background-color: #ffe204;
+  font-weight: bold;
+
+  text-transform: uppercase;
+  text-align: center;
+  margin-right: 7px;
+  line-height: 19px;
+}
+
+
+
+.infowindow .infowindow-bottom {
+  padding-top: 10px;
+  text-align: center;
+}
+
+.infowindow .infowindow-bottom a {
+  display: inline-block;
+  margin: 0px 10px;
+  clear: both;
+  background: #555555;
+  padding: 5px 10px;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 0;
+}
+
+
+
+
+.infowindow-preview {
+  height: auto;
+  width: 200px;
+  position: relative;
+  text-align: left;
+}
+
+.infowindow-preview .infowindow-preview-detail {
+  min-height: 90px;
+  overflow: auto;
+  font-size: 11px;
+  line-height: 18px;
+}
+
+.infowindow-preview a {
+  color: #0026ff;
+}
+
+.infowindow-preview .infowindow-preview-title {
+  color: #055699;
+  margin-bottom: 3px;
+}
+
+.infowindow-preview .infowindow-preview-picture {
+  width: 60px;
+  height: 40px;
+  float: left;
+  padding: 5px;
+}
+
+.infowindow-preview .infowindow-preview-picture img {
+  width: 50px;
+  height: 40px;
+}
+.infowindow-preview .infowindow-info {
+  color: #666;
+}
+
+
+
+
+/*--------------------------------------------------------begin tooltip*/
+
+.tooltip-mk {
+  position: absolute;
+  width: 200px;
+  overflow: hidden;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 9pt;
+  font-family: Verdana;
+  background-color: #fff;
+  color: #000;
+  z-index: 1000;
+}
+
+/*--------------------------------------------------------end tooltip*/
+
+
+
+
+
+
+
+
+#directions {
+  height: 600px;
+  min-height: 600px;
+  overflow: auto;
+  background: #ffffff;
+  position: relative
+}
+
+#directionsContainer { }
+#directionsForm {
+  padding: 20px 20px 15px 20px;
+  border-bottom: 2px solid #efeeee;
+}
+
+#directionsForm ol.form {
+  width: auto;
+}
+
+
+#directionsForm button, #directionsForm input, #directionsForm select {
+  margin: 0;
+  padding: 1px 6px;
+  border: 2px solid #ededed;
+  border-radius: 0;
+  background: #ededed;
+  color: #3d3a35;
+  vertical-align: baseline;
+}
+
+#directionsForm input[type="text"] {
+  background-image: -webkit-gradient(linear, 0% 0, 0% 100%, from(rgba(255, 255, 255, 0)), to(rgba(255, 255, 255, 0)));
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+}
+
+#directionsForm  .btn-direction {
+  background: #d69a28;
+  border: none;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 3px 15px;
+}
+
+#directionsForm ol.form li {
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+#directionsForm ol.form li.origin,
+#directionsForm ol.form li.destination {
+
+}
+
+#directionsForm ol.form li.error {
+  padding: 4px;
+}
+
+#directionsForm ol.form li ul#travel-modes {
+  padding: 0;
+  overflow: hidden;
+}
+
+#directionsForm ol.form ul#travel-modes li {
+  float: left;
+  margin-bottom: 0;
+}
+
+ul#travel-modes li label,
+#directionsForm ol.form li.swap-locations-wrapper button#swap-locations {
+  background-image: url('../images/sl-directions-form-atlas.png');
+  background-repeat: no-repeat;
+  background-position: left top;
+}
+
+ul#travel-modes li label {
+  cursor: pointer;
+  display: block;
+  height: 28px;
+  width: 40px;
+  background-color: #d0d0d0;
+  color: #fff;
+  text-indent: -9999px;
+  margin-right: 10px;
+}
+
+ul#travel-modes li.transit label {
+  background-position: -40px top;
+}
+
+ul#travel-modes li.walking label {
+  background-position: -80px top;
+}
+
+ul#travel-modes li.bicycling label {
+  background-position: -120px top;
+}
+
+ul#travel-modes li input[type="radio"] {
+  visibility: hidden;
+  position: absolute;
+}
+
+ul#travel-modes li input[type="radio"]:checked+label {
+  background-color: #d69a28;
+}
+
+#directionsForm ol.form li.swap-locations-wrapper {
+  height: 0;
+  position: relative;
+}
+
+#directionsForm ol.form li.swap-locations-wrapper button#swap-locations {
+  position: absolute;
+  left: 237px;
+  top: -25px;
+  width: 20px;
+  height: 40px;
+  text-indent: -9999px;
+  background-position: -162px top;
+}
+
+#directionsForm ol.form li div.directions-input input[type=text] {
+  width: calc(100% - 40px);
+}
+
+#directionsForm ol.form li div.directions-input label {
+  color: #fff;
+  background: #000;
+  display: block;
+  width: 30px;
+  float: left;
+  text-align: center;
+  line-height: 2.072em;
+}
+
+#directionsForm ol.form li button#getDirections {
+  margin-top: 5px;
+}
+
+#directions li p.error {
+  display: none;
+}
+
+#directions li.error p.error {
+  display: block;
+}
+
+#directions_waiting {
+  background: #fff url(../images/loading_bar.gif) no-repeat 50% 2em;
+  position: absolute;
+  top: 205px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+#routes {
+  position: relative;
+}
+
+#routes .selected-store-address {
+  padding: 10px 30px;
+  border-bottom: 2px solid #edeeee;
+}
+
+#routes .selected-store-address .store-name {
+  color: #2a8a15;
+  font-size: 1.143em;
+  font-weight: bold;
+}
+
+#routes .selected-store-address ul li {
+  color: #827A71;
+  font-size: .857em;
+  line-height: 1.429em;
+}
+
+#routes .adp-list {
+  padding: 0;
+  border: 0;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #edeeee;
+}
+
+#routes .adp-list table {
+  margin: 0;
+  line-height: inherit;
+}
+
+#routes .adp-list table tr td {
+  padding: 5px 25px 5px 35px;
+  border-top: 1px solid #edeeee;
+  border-right: 0;
+  border-bottom: 0;
+  border-left: 0;
+  line-height: 1.143em;
+}
+
+#routes .adp-list table tr:first-child td {
+  border-top: 0;
+  line-height: inherit;
+}
+
+#routes .adp-list .adp-listsel .adp-listinfo span {
+  color: #000;
+}
+
+#routes .adp-list .adp-listsel {
+  color: #000;
+  font-weight: bold;
+  background: #edeeee;
+}
+
+#routes .adp-list .adp-listheader {
+  font-size: 1em;
+  font-weight: bold;
+  padding: 15px 25px 5px 35px;
+}
+
+#routes .adp-list .adp-listinfo {
+  font-size: .857em;
+}
+
+#routes .adp-list .adp-listinfo b {
+  display: block;
+}
+
+#routes .adp-list .adp-listinfo span {
+  color: #827A71;
+}
+
+#routes .adp-placemark {
+  margin: 0;
+  border: 0;
+  background: 0;
+}
+
+#routes .adp-placemark tr td,
+#routes .adp-directions .adp-substep {
+  font-size: .857em;
+  font-weight: bold;
+}
+
+#routes .adp-placemark tr td {
+  border: 0;
+}
+
+#routes .adp-summary {
+  display: none;
+}
+
+#routes .adp-directions {
+  margin: 0 15px 0 15px;
+}
+
+#routes .adp-directions tr {
+  border-bottom: 1px solid #edeeee;
+}
+
+#routes .adp-directions:first-child tr {
+  border-top: 1px solid #edeeee;
+}
+
+#routes .adp-directions .adp-substep {
+  border: 0;
+  padding: 10px 0;
+}
+
+.adp-legal {
+  display: none;
+}

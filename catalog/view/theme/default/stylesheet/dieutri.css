@@ -1,0 +1,57 @@
+/* General styles */
+.main .dieutri_stats {
+	margin:-2px 2px 15px;
+}
+.main .dieutri_stats span i {
+	margin-right:3px;
+}
+.main .image {
+	margin-bottom:15px;
+}
+.main .description {
+	margin-bottom:30px;
+}
+.main .share_this .text {
+	color:#777777;
+	float:left;
+	margin-right:10px;
+	line-height:32px;
+}
+.bottom_buttons .tag_text {
+	color:#777777;
+}
+.dieutri_comment {
+	display:table;
+	width:100%;
+	border-bottom:1px solid #eaeaea;
+}
+.dieutri_comment .left, .dieutri_comment .right {
+	display:table-cell;
+	padding:19px;
+	vertical-align:top;
+}
+.dieutri_comment .left {
+	padding-right:0;
+	width:100px;
+}
+.dieutri_comment .left .fa {
+	display:block;
+	font-size:64px;
+	color:#dfdfe1;
+	background:#f2f2f2;
+	padding:13px 17px 5px;
+}
+
+.dieutri_comment .right .author {
+	color:#999999;
+	margin-bottom:10px;
+}
+.dieutri_comment .right p b {
+	color:#333333;
+}
+.dieutri_comment .right .date {
+	font-size:13px;
+}
+.bottom_buttons.comment_pagination {
+	border-top:none;
+}

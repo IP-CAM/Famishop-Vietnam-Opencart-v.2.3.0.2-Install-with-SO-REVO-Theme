@@ -1,0 +1,38 @@
+.so-page-builder .container-fluid{padding:0; overflow:hidden;}.so-page-builder .container{padding:0; overflow:hidden;}.so-page-builder section{overflow:hidden;}
+.abouts{background-image:url('../../../../../image/catalog/home/abouts.jpg');background-repeat:no-repeat; background-position:right top; background-attachment:scroll ;}
+
+.col_cd64{padding:40px 0;background-image:url('../../../../../image/catalog/home/bg_logo.png');background-repeat:no-repeat; background-position:center bottom; background-attachment:scroll ; overflow:hidden;}
+.featured-box{background-image:url('../../../../../image/catalog/home/bg_green.jpg');background-repeat:repeat; background-position:center center; background-attachment:scroll ;}
+.row_jklg{padding:40px; overflow:hidden;}
+
+.col_6eeb{padding:50px 0;background-image:url('../../../../../image/catalog/home/bg_logo.png');background-repeat:no-repeat; background-position:center bottom; background-attachment:scroll ; overflow:hidden;}
+.col_p5wc{padding:50px 0;background-image:url('../../../../../image/catalog/home/bg_logo.png');background-repeat:no-repeat; background-position:center bottom; background-attachment:scroll ; overflow:hidden;}
+.col_esnv{padding:50px 0;background-image:url('../../../../../image/catalog/home/bg_logo.png');background-repeat:no-repeat; background-position:center bottom; background-attachment:scroll ; overflow:hidden;}
+.col_t5jf{padding:50px 0;background-image:url('../../../../../image/catalog/home/bg_logo.png');background-repeat:no-repeat; background-position:center bottom; background-attachment:scroll ; overflow:hidden;}
+.row_pmm7{padding:40px; overflow:hidden;}
+
+.product-box{background-color:rgba(246,246,246,1);}
+.row_z20m{padding:40px; overflow:hidden;}
+
+.dieutri-box{background-image:url('../../../../../image/catalog/home/bg1.jpg');background-repeat:no-repeat; background-position:center center; background-attachment:scroll ;background-size:cover;}
+.row_8q3m{padding:40px; overflow:hidden;}
+.row_8q3m .so-desc,.row_8q3m p,.row_8q3m span,.row_8q3m div{color:#fff}
+.row_8q3m .so-link,.row_8q3m h1 a,.row_8q3m h2 a,.row_8q3m h3 a,.row_8q3m h4 a,.row_8q3m h5 a,.row_8q3m h6 a,.row_8q3m a{color:#fff}
+.row_8q3m .so-link:hover,.row_8q3m h1 a:hover,.row_8q3m h2 a:hover,.row_8q3m h3 a:hover,.row_8q3m h4 a:hover,.row_8q3m h5 a:hover,.row_8q3m h6 a:hover,.row_8q3m a:hover{color:#fff}
+.row_8q3m .so-heading,.row_8q3m h1,.row_8q3m h2,.row_8q3m h3,.row_8q3m h4,.row_8q3m h5,.row_8q3m h6{color:#fff}
+
+.testeminal-box{background-image:url('../../../../../image/catalog/testerminal/bg.jpg');background-repeat:no-repeat; background-position:center center; background-attachment:scroll ;background-size:cover;}
+.row_p7br{padding:40px; overflow:hidden;}
+.row_p7br .so-desc,.row_p7br p,.row_p7br span,.row_p7br div{color:}
+.row_p7br .so-link,.row_p7br h1 a,.row_p7br h2 a,.row_p7br h3 a,.row_p7br h4 a,.row_p7br h5 a,.row_p7br h6 a,.row_p7br a{color:}
+.row_p7br .so-link:hover,.row_p7br h1 a:hover,.row_p7br h2 a:hover,.row_p7br h3 a:hover,.row_p7br h4 a:hover,.row_p7br h5 a:hover,.row_p7br h6 a:hover,.row_p7br a:hover{color:}
+.row_p7br .so-heading,.row_p7br h1,.row_p7br h2,.row_p7br h3,.row_p7br h4,.row_p7br h5,.row_p7br h6{color:}
+
+/* Style Testimonial */ 
+.mod-testimonial_m0a2 h3{text-align:center}.mod-testimonial_m0a2 .item-info,.mod-testimonial_m0a2 .item-info h5,.mod-testimonial_m0a2 .item-info span{color:}.mod-testimonial_m0a2 .item-img-info img{border-radius:50%; margin:0 auto; max-width:100%;}.mod-testimonial_m0a2 .item{border:0px solid #ccc; background:rgba(255,255,255,0.8) }
+.row_vjqm{padding:40px 0; overflow:hidden;}
+.row_vjqm .so-desc,.row_vjqm p,.row_vjqm span,.row_vjqm div{color:}
+.row_vjqm .so-link,.row_vjqm h1 a,.row_vjqm h2 a,.row_vjqm h3 a,.row_vjqm h4 a,.row_vjqm h5 a,.row_vjqm h6 a,.row_vjqm a{color:}
+.row_vjqm .so-link:hover,.row_vjqm h1 a:hover,.row_vjqm h2 a:hover,.row_vjqm h3 a:hover,.row_vjqm h4 a:hover,.row_vjqm h5 a:hover,.row_vjqm h6 a:hover,.row_vjqm a:hover{color:}
+.row_vjqm .so-heading,.row_vjqm h1,.row_vjqm h2,.row_vjqm h3,.row_vjqm h4,.row_vjqm h5,.row_vjqm h6{color:}
+

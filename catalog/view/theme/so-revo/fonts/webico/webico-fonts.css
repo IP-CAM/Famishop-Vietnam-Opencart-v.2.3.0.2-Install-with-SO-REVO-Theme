@@ -1,0 +1,14 @@
+html{overflow-x:hidden;box-shadow:none!important;}
+body a{outline: none!important;}
+@font-face{font-family:'Webico';
+	src:url('utm-avo.eot');
+	src:local('☺'),url('utm-avo.woff') format('woff'),url('utm-avo.ttf') format('truetype'),url('utm-avo.svg') format('svg');
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face{font-family:'Webico';
+	src:url('utm-avobold.eot');
+	src:local('☺'),url('utm-avobold.woff') format('woff'),url('utm-avobold.ttf') format('truetype'),url('utm-avobold.svg') format('svg');
+	font-weight:bold;
+	font-style:normal;
+}

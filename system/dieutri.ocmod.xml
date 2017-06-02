@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+	<name><![CDATA[Dieu tri theme]]></name>
+    <version><![CDATA[1.0.0]]></version>
+    <author><![CDATA[Webico.vn]]></author>
+	<!--Dev: Custom-->
+
+	<file path="admin/controller/common/column_left.php">
+		<operation error="log">
+			<search position="before"><![CDATA[$data['text_complete_status'] = $this->language->get('text_complete_status');]]></search>
+			<add position="before"><![CDATA[
+			$this->load->language('dieutri/dieutri');
+			$dieutri = array();
+			if ($this->user->hasPermission('access', 'dieutri/dieutri_setting')) {
+				$dieutri[] = array(
+					'name'	   => $this->language->get('text_dieutri_setting'),
+					'href'     => $this->url->link('dieutri/dieutri_setting', 'token=' . $this->session->data['token'], true),
+					'children' => array()
+			);}
+			if ($this->user->hasPermission('access', 'dieutri/dieutri_category')) {
+				$dieutri[] = array(
+					'name'	   => $this->language->get('text_dieutri_category'),
+					'href'     => $this->url->link('dieutri/dieutri_category', 'token=' . $this->session->data['token'], true),
+					'children' => array()
+			);}
+			if ($this->user->hasPermission('access', 'dieutri/dieutri')) {
+				$dieutri[] = array(
+					'name'	   => $this->language->get('text_dieutri_post'),
+					'href'     => $this->url->link('dieutri/dieutri', 'token=' . $this->session->data['token'], true),
+					'children' => array()
+			);}
+			if ($this->user->hasPermission('access', 'dieutri/dieutri_comment')) {
+				$dieutri[] = array(
+					'name'	   => $this->language->get('text_dieutri_comment'),
+					'href'     => $this->url->link('dieutri/dieutri_comment', 'token=' . $this->session->data['token'], true),
+					'children' => array()
+			);}
+			if ($dieutri) {
+				$data['menus'][] = array(
+					'id'       => 'menu-dieutri',
+					'icon'	   => 'fa-newspaper-o',
+					'name'	   => $this->language->get('text_dieutri'),
+					'href'     => '',
+					'children' => $dieutri
+			);}
+			]]></add>
+		</operation>
+	</file>
+
+
+</modification>

@@ -1,0 +1,1 @@
+/Users/binhtran/Documents/OPENCART/grassroots/admin/view/javascript/ckeditor/ckeditor.js
